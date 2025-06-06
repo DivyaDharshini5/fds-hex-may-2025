@@ -1,5 +1,6 @@
 package com.project.simplyfly.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.project.simplyfly.enums.SeatType;
 
 import jakarta.persistence.Entity;
@@ -8,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Seat {
@@ -16,61 +18,52 @@ public class Seat {
 private int id;
 private String seatNumber;
 
+
 public int getId() {
 	return id;
 }
-
 public void setId(int id) {
 	this.id = id;
 }
-
 public String getSeatNumber() {
 	return seatNumber;
 }
-
 public void setSeatNumber(String seatNumber) {
 	this.seatNumber = seatNumber;
 }
-
-public SeatType getSeatType() {
-	return seatType;
-}
-
-public void setSeatType(SeatType seatType) {
-	this.seatType = seatType;
-}
-
-public Boolean getIs_reserved() {
-	return is_reserved;
-}
-
-public void setIs_reserved(Boolean is_reserved) {
-	this.is_reserved = is_reserved;
-}
-
-public Flight getFlight() {
-	return flight;
-}
-
-public void setFlight(Flight flight) {
-	this.flight = flight;
-}
-
 public Passenger getPassenger() {
 	return passenger;
 }
-
 public void setPassenger(Passenger passenger) {
 	this.passenger = passenger;
 }
+public SeatType getSeatType() {
+	return seatType;
+}
+public void setSeatType(SeatType seatType) {
+	this.seatType = seatType;
+}
+public Boolean getIsReserved() {
+	return isReserved;
+}
+public void setIsReserved(Boolean isReserved) {
+	this.isReserved = isReserved;
+}
+public Flight getFlight() {
+	return flight;
+}
+public void setFlight(Flight flight) {
+	this.flight = flight;
+}
+@OneToOne
+@JoinColumn(name = "passenger_id")
+@JsonBackReference
+private Passenger passenger;
 
 private SeatType seatType;
-private Boolean is_reserved=false;
+private Boolean isReserved=false;
 @ManyToOne
 @JoinColumn(name="flight_id")
 private Flight flight; 
 
-@ManyToOne
-@JoinColumn(name="passenger_id")
-private Passenger passenger;
 }

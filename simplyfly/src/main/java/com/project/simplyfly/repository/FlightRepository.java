@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.Query;
 import com.project.simplyfly.model.Flight;
 
 public interface FlightRepository extends JpaRepository<Flight,Integer>{
-
+    
 	
 }

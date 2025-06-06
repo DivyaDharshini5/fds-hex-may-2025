@@ -19,6 +19,7 @@ private int id;
 private String full_name;
 private int age;
 private String gender;
+
 public int getId() {
 	return id;
 }
@@ -49,18 +50,6 @@ public String getPassport_no() {
 public void setPassport_no(String passport_no) {
 	this.passport_no = passport_no;
 }
-public String getSeat_number() {
-	return seat_number;
-}
-public void setSeat_number(String seat_number) {
-	this.seat_number = seat_number;
-}
-public Booking getBooking() {
-	return booking;
-}
-public void setBooking(Booking booking) {
-	this.booking = booking;
-}
 public Customer getCustomer() {
 	return customer;
 }
@@ -69,12 +58,7 @@ public void setCustomer(Customer customer) {
 }
 @Column(name="passport_no")
 private String passport_no;
-@Column(name="seat_number")
-private String seat_number;
-@ManyToOne
-private Booking booking;
 @ManyToOne
 @JoinColumn(name="customer_id")
 private Customer customer;
-
 }

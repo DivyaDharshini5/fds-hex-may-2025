@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.project.simplyfly.exception.InvalidIdException;
 import com.project.simplyfly.exception.ResourceNotFoundException;
+import com.project.simplyfly.exception.UserNotFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 /*whenever a runtimeexception  is thrown in controller class, this method gets called
@@ -40,5 +42,19 @@ public class GlobalExceptionHandler {
 		return ResponseEntity
 				.status(HttpStatus.UNAUTHORIZED)
 				.body(map);
+	}
+	@ExceptionHandler(exception = InvalidIdException.class)
+	public ResponseEntity<?> handleInvalidIdException(RuntimeException e){
+		Map<String,String > map = new HashMap<>();
+		map.put("msg",e.getMessage());
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(map);
+		
+	}
+	@ExceptionHandler(exception = UserNotFoundException.class)
+	public ResponseEntity<?> handleUserNotFoundException(RuntimeException e){
+		Map<String,String > map = new HashMap<>();
+		map.put("msg",e.getMessage());
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(map);
+		
 	}
 }

@@ -28,26 +28,42 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 				.csrf((csrf) -> csrf.disable()) 
 				.authorizeHttpRequests(authorize -> authorize
 						.requestMatchers("/api/user/signup").permitAll()
+						//customer
 						.requestMatchers("/api/customer/add").permitAll()
 						.requestMatchers("/api/customer/get-one").hasAuthority("CUSTOMER")
+						.requestMatchers("/api/customer/get-all").permitAll()
+						.requestMatchers("/api/booking/customer").hasAuthority("CUSTOMER")
+						.requestMatchers("/api/customer/update").authenticated()
+						.requestMatchers("/api/customer/delete").authenticated()
+						//passenger
+						.requestMatchers("/api/passenger/add").hasAuthority("CUSTOMER")
+						.requestMatchers("/api/passenger/update").authenticated()
+						.requestMatchers("/api/passenger/delete").authenticated()
+						//flight
 						.requestMatchers("/api/flight/add").hasAuthority("OWNER")
 						.requestMatchers("/api/route/add").hasAnyAuthority("OWNER","SUPERVISOR")
 						.requestMatchers("/api/owner/add").permitAll()
 						.requestMatchers("/api/owner/get-one").hasAuthority("OWNER")
 						.requestMatchers("/api/flightroute/add/{flightId}/{routeId}").hasAnyAuthority("OWNER","SUPERVISOR")
 						.requestMatchers("/api/flight/search/route/{flightId}/{routeId}").permitAll()
-						.requestMatchers("/api/customer/get-all").permitAll()
+						.requestMatchers("/api/flight/delete/{flightId}").hasAuthority("OWNER")
+						
+						.requestMatchers("/api/flight/search/customer").hasAuthority("CUSTOMER")
+						.requestMatchers("/api/seat/available").hasAuthority("CUSTOMER")
+						//seat
+						.requestMatchers("/api/seat/select").hasAuthority("CUSTOMER")
+						
 						.requestMatchers("/api/coupon/add").permitAll()
-						.requestMatchers("/api/booking/add/{customerId}/{flightId}/{couponId}").permitAll()
-						.requestMatchers("/api/user/token").authenticated()
+						.requestMatchers("/api/booking/makeBooking").authenticated()
+						
 						.requestMatchers("/api/booking/get-all").hasAuthority("SUPERVISOR")
-						.requestMatchers("/api/booking/customer").hasAuthority("CUSTOMER")
+						
 						.requestMatchers("/api/supervisor/add").hasAuthority("SUPERVISOR")
 						.requestMatchers("/api/payment/add/{bookingId}").permitAll()
 						.requestMatchers("/api/payment/get-one/{customerId}").hasAuthority("CUSTOMER")
 						.requestMatchers("/api/payment/get-all").hasAnyAuthority("OWNER","SUPERVISOR")
-						.requestMatchers("/api/add/passenger").authenticated()
-						.requestMatchers("api/selectseat?flightId=1&seatNumber=12A&passengerId=1").permitAll()
+						//Token
+						.requestMatchers("/api/user/token").authenticated()
 						
 						
 				.anyRequest().authenticated()

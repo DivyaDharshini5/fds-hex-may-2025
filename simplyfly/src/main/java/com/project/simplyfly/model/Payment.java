@@ -13,7 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 @Entity
 public class Payment {
 	@Id
@@ -29,7 +29,7 @@ public class Payment {
 	private Status status;
 	@Enumerated(EnumType.STRING)
 	private PaymentType paymentType;
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "booking_id")
 	private Booking booking;
 	public int getId() {

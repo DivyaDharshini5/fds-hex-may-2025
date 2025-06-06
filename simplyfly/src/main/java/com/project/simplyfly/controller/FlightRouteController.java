@@ -1,5 +1,8 @@
 package com.project.simplyfly.controller;
 
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,4 +32,9 @@ public FlightRoute FlightByRoute(@PathVariable int flightId,
 public FlightRoute addFlightRoute(@PathVariable int flightId, @PathVariable int routeId) {
     return flightRouteService.createFlightRoute(flightId, routeId);
 }
+@GetMapping("/api/flight/search/customer")
+public List<FlightRoute> getCustomerFlights(Principal principal) {
+    return flightRouteService.getFlightsForCustomer(principal);
+}
+
 }

@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -32,6 +33,8 @@ private Customer customer;
 private Flight flight;
 @ManyToOne
 private Coupon coupon;
+@OneToOne
+private Passenger passenger;
 public int getId() {
 	return id;
 }
@@ -44,7 +47,6 @@ public LocalDate getBooking_date() {
 public void setBooking_date(LocalDate booking_date) {
 	this.booking_date = booking_date;
 }
-
 public Status getStatus() {
 	return status;
 }
@@ -74,6 +76,12 @@ public Coupon getCoupon() {
 }
 public void setCoupon(Coupon coupon) {
 	this.coupon = coupon;
+}
+public Passenger getPassenger() {
+	return passenger;
+}
+public void setPassenger(Passenger passenger) {
+	this.passenger = passenger;
 }
 
 }
