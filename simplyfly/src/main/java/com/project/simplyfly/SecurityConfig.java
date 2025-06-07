@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.bind.annotation.GetMapping;
 
 
 
@@ -47,6 +48,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 						.requestMatchers("/api/flightroute/add/{flightId}/{routeId}").hasAnyAuthority("OWNER","SUPERVISOR")
 						.requestMatchers("/api/flight/search/route/{flightId}/{routeId}").permitAll()
 						.requestMatchers("/api/flight/delete/{flightId}").hasAuthority("OWNER")
+						.requestMatchers("/api/flight/get-all").permitAll()
 						
 						.requestMatchers("/api/flight/search/customer").hasAuthority("CUSTOMER")
 						.requestMatchers("/api/seat/available").hasAuthority("CUSTOMER")
@@ -59,9 +61,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 						.requestMatchers("/api/booking/get-all").hasAuthority("SUPERVISOR")
 						
 						.requestMatchers("/api/supervisor/add").hasAuthority("SUPERVISOR")
-						.requestMatchers("/api/payment/add/{bookingId}").permitAll()
-						.requestMatchers("/api/payment/get-one/{customerId}").hasAuthority("CUSTOMER")
-						.requestMatchers("/api/payment/get-all").hasAnyAuthority("OWNER","SUPERVISOR")
+						//payment
+						.requestMatchers("/api/payment/process").hasAuthority("CUSTOMER")
+						.requestMatchers("/api/payment/get").hasAuthority("CUSTOMER")
+						.requestMatchers("/api/payment/cancel/{bookingId}").hasAuthority("CUSTOMER")
+						.requestMatchers("/api/payment/refund/{bookingId}").hasAuthority("OWNER")
 						//Token
 						.requestMatchers("/api/user/token").authenticated()
 						

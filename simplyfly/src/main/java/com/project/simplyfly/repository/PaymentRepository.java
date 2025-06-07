@@ -11,6 +11,8 @@ import com.project.simplyfly.model.Payment;
 public interface PaymentRepository extends JpaRepository<Payment,Integer>{
 	 @Query("select p from Payment p where p.booking.customer.id=?1")
 		List<Payment> findByCustomerId(int customerId);
+	 @Query("select p from Payment p where p.booking.id=?1")
+	List<Payment> findByBookingId(int bookingId);
 
 	
 		

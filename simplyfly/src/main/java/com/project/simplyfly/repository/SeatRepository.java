@@ -1,6 +1,7 @@
 package com.project.simplyfly.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -11,6 +12,6 @@ public interface SeatRepository extends JpaRepository<Seat,Integer>{
 
 	List<Seat> findByFlightId(int flightId);
 
-	List<Seat> findByPassengerId(int passengerId);
+	Optional<Seat> findByPassengerId(int passengerId);
 	List<Seat> findByFlightIdAndIsReservedFalse(int flightId);
 }

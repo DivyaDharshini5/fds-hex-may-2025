@@ -95,10 +95,10 @@ public List<Seat> selectSeatForFlight(SeatSelectionDto requestSeat,Principal pri
         seat.setSeatType(seatType);
         seat.setIsReserved(true);
         seat.setPassenger(passenger);
-        
-        passenger.setSeat(seat);
-        passengerRepository.save(passenger);
+        seatRepository.save(seat);
         selectedSeats.add(seat);
+        
+        
     }
 
     return seatRepository.saveAll(selectedSeats);

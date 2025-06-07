@@ -43,7 +43,7 @@ public void setUser(User user) {
 }
 private String name;
 private String contact;
-@OneToOne(cascade = CascadeType.PERSIST)
+@OneToOne
 @JoinColumn(name = "user_id")
 private User user;
 
