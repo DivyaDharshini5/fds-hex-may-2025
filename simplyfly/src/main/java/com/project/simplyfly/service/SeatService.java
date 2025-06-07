@@ -14,6 +14,7 @@ import com.project.simplyfly.model.Customer;
 import com.project.simplyfly.model.Flight;
 import com.project.simplyfly.model.Passenger;
 import com.project.simplyfly.model.Seat;
+import com.project.simplyfly.repository.FlightRepository;
 import com.project.simplyfly.repository.PassengerRepository;
 import com.project.simplyfly.repository.SeatRepository;
 
@@ -23,12 +24,14 @@ public class SeatService {
 	private SeatRepository seatRepository;
 	private PassengerRepository passengerRepository;
 	private CustomerService customerService;
-
+	private FlightRepository flightRepository;
 public SeatService(SeatRepository seatRepository, PassengerRepository passengerRepository,
-			CustomerService customerService) {
+			CustomerService customerService, FlightRepository flightRepository) {
+		super();
 		this.seatRepository = seatRepository;
 		this.passengerRepository = passengerRepository;
 		this.customerService = customerService;
+		this.flightRepository = flightRepository;
 	}
 
 public List<Seat> generateSeats(Flight flight) {
@@ -96,12 +99,17 @@ public List<Seat> selectSeatForFlight(SeatSelectionDto requestSeat,Principal pri
         seat.setIsReserved(true);
         seat.setPassenger(passenger);
         seatRepository.save(seat);
-        selectedSeats.add(seat);
-        
-        
+        selectedSeats.add(seat);  
     }
-
-    return seatRepository.saveAll(selectedSeats);
+    seatRepository.saveAll(selectedSeats);
+    //select on seat and see which flight it belongs to
+    Flight flight=selectedSeats.get(0).getFlight();
+    int available=flight.getSeatsAvailable();
+    int newAvailable=available-selectedSeats.size();
+    if(newAvailable>0)
+    flight.setSeatsAvailable(newAvailable);
+    flightRepository.save(flight);
+    return selectedSeats;
 }
 public List<Seat> getAvailableSeatsByFlightId(int flightId) {
     return seatRepository.findByFlightIdAndIsReservedFalse(flightId);

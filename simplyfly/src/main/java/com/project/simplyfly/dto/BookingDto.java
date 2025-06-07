@@ -1,7 +1,5 @@
 package com.project.simplyfly.dto;
 
-import org.springframework.context.annotation.Bean;
-
 
 public class BookingDto {
 	private Integer id;

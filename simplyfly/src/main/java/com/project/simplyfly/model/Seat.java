@@ -17,8 +17,6 @@ public class Seat {
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private int id;
 private String seatNumber;
-
-
 public int getId() {
 	return id;
 }
@@ -65,5 +63,6 @@ private Boolean isReserved=false;
 @ManyToOne
 @JoinColumn(name="flight_id")
 private Flight flight; 
+
 
 }

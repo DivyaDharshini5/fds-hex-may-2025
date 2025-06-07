@@ -23,7 +23,6 @@ private double price_per_person;
 @Column(name = "seats_available") 
 private int seatsAvailable;
 
-
 public int getId() {
 	return id;
 }

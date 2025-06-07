@@ -74,7 +74,6 @@ public class BookingService {
 		}
 		double discount = bookingPaymentDto.getCouponType().getValue();
 
-//     booking.setTotal_price(flight.getPrice_per_person()-(flight.getPrice_per_person()*(discount/100)));
 
 		// for each passenger make booking
 		List<Booking> BookingList = new ArrayList<>();
@@ -90,7 +89,7 @@ public class BookingService {
 			Flight flight = seat.getFlight();
 			if (flight == null)
 				throw new ResourceNotFoundException("No flight found for passenger ");
-			// calculating price with dicount from coupom
+			// calculating price with discount from coupon
 			double flightprice = flight.getPrice_per_person();
 			double pricepaid = flightprice - (flightprice * (discount / 100));
 			Booking booking = new Booking();
@@ -118,8 +117,6 @@ public class BookingService {
 	public List<Booking> getByCustomer(Principal principal) {
 		String username = principal.getName();
 		Customer customer = customerRepository.getCustomerByUsername(username);
-		// for every booking get the customer Id and see if it matches the loggedIn user
-		// If matches filter the records and return them
 		return bookingRepository.findAll().stream().filter(b -> b.getCustomer().getId() == customer.getId()).toList();
 	}
 

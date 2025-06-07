@@ -49,6 +49,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 						.requestMatchers("/api/flight/search/route/{flightId}/{routeId}").permitAll()
 						.requestMatchers("/api/flight/delete/{flightId}").hasAuthority("OWNER")
 						.requestMatchers("/api/flight/get-all").permitAll()
+						.requestMatchers("/api/route/edit/{routeId}").permitAll()
 						
 						.requestMatchers("/api/flight/search/customer").hasAuthority("CUSTOMER")
 						.requestMatchers("/api/seat/available").hasAuthority("CUSTOMER")
