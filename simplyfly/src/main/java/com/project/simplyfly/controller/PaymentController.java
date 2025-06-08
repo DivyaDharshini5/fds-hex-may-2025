@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.simplyfly.dto.PaymentDto;
 import com.project.simplyfly.model.Payment;
 import com.project.simplyfly.service.PaymentService;
 
@@ -27,9 +28,9 @@ public class PaymentController {
 	param:principal for logged in user,
 	*confirmation for makeing payment*/
 @PostMapping("/process")
-public ResponseEntity<List<Payment>> processPayment(Principal principal,
+public ResponseEntity<List<PaymentDto>> processPayment(Principal principal,
 @RequestParam(defaultValue = "true") boolean confirm) {
-	List<Payment> list = paymentService.processPayment(principal, confirm);
+	List<PaymentDto> list = paymentService.processPayment(principal, confirm);
 	return ResponseEntity.ok(list);
 	    }
 /*method:get
@@ -37,8 +38,8 @@ public ResponseEntity<List<Payment>> processPayment(Principal principal,
 *
 */
 @GetMapping("/get")
-public ResponseEntity<List<Payment>> getPayments(Principal principal) {
-    List<Payment> list = paymentService.getPayments(principal);
+public ResponseEntity<List<PaymentDto>> getPayments(Principal principal) {
+    List<PaymentDto> list = paymentService.getPayments(principal);
     return ResponseEntity.ok(list);
 }
 /*method:delete

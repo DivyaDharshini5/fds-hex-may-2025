@@ -5,12 +5,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.project.simplyfly.dto.CustomerDto;
 import com.project.simplyfly.dto.PassengerDto;
 import com.project.simplyfly.exception.ResourceNotFoundException;
-import com.project.simplyfly.model.Booking;
 import com.project.simplyfly.model.Customer;
 import com.project.simplyfly.model.Passenger;
-import com.project.simplyfly.model.Seat;
 import com.project.simplyfly.repository.BookingRepository;
 import com.project.simplyfly.repository.PassengerRepository;
 import com.project.simplyfly.repository.SeatRepository;
@@ -31,7 +30,7 @@ private  SeatRepository seatRepository;
 	this.bookingRepository = bookingRepository;
 	this.seatRepository = seatRepository;
 }
-	public Passenger AddPassenger(PassengerDto passengerdto,Principal principal) {
+	public PassengerDto AddPassenger(PassengerDto passengerdto,Principal principal) {
 		//get username of loggedin customer
 		String username=principal.getName();
 		//fetch the customer based on username
@@ -46,8 +45,19 @@ private  SeatRepository seatRepository;
 		    passenger.setPassport_no(passengerdto.getPassport_no());
 		  //attach customer to passenger
 		 passenger.setCustomer(customer);
-	
-		return passengerRepository.save(passenger);
+		 passengerRepository.save(passenger);
+		 CustomerDto customerDto = new CustomerDto();
+		    customerDto.setId(customer.getId());
+		    customerDto.setName(customer.getName());
+		    customerDto.setContact(customer.getContact());
+		    PassengerDto responseDto = new PassengerDto();
+		    responseDto.setId(passenger.getId());
+		    responseDto.setFull_name(passenger.getFull_name());
+		    responseDto.setAge(passenger.getAge());
+		    responseDto.setGender(passenger.getGender());
+		    responseDto.setPassport_no(passenger.getPassport_no());
+		    responseDto.setCustomer(customerDto);
+		    return responseDto;
 	}
 	public Passenger UpdatePassenger(Passenger updatedpassenger, Principal principal) {
 		//get username of logged in user

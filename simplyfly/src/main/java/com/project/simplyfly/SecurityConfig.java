@@ -60,15 +60,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 						.requestMatchers("/api/booking/makeBooking").authenticated()
 						
 						.requestMatchers("/api/booking/get-all").hasAuthority("SUPERVISOR")
+						.requestMatchers("/a/ownerpi/booking").hasAuthority("SUPERVISOR")
 						
-						.requestMatchers("/api/supervisor/add").hasAuthority("SUPERVISOR")
+						
+						
+						.requestMatchers("/api/supervisor/add").authenticated()
 						//payment
 						.requestMatchers("/api/payment/process").hasAuthority("CUSTOMER")
 						.requestMatchers("/api/payment/get").hasAuthority("CUSTOMER")
 						.requestMatchers("/api/payment/cancel/{bookingId}").hasAuthority("CUSTOMER")
 						.requestMatchers("/api/payment/refund/{bookingId}").hasAuthority("OWNER")
 						//Token
-						.requestMatchers("/api/user/token").authenticated()
+						.requestMatchers("/api/booking/owner").authenticated()
 						
 						
 				.anyRequest().authenticated()

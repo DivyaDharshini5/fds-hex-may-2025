@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.project.simplyfly.dto.PaymentDto;
 import com.project.simplyfly.enums.Status;
 import com.project.simplyfly.model.Booking;
 import com.project.simplyfly.model.Customer;
@@ -62,7 +63,7 @@ public class ProcessPaymentTest {
     	 when(paymentRepository.findByBookingId(10)).thenReturn(List.of(payment));
          when(bookingRepository.saveAll(List.of(booking))).thenReturn(List.of(booking));
          when(paymentRepository.saveAll(List.of(payment))).thenReturn(List.of(payment));
-		List<Payment> result =paymentService.processPayment(principal, true);
+		List<PaymentDto> result =paymentService.processPayment(principal, true);
 		assertEquals(Status.CONFIRMED, result.get(0).getStatus());
         assertEquals(Status.CONFIRMED, booking.getStatus());
         assertEquals(36, result.get(0).getTransaction_id().length());

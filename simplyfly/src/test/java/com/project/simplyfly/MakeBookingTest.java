@@ -15,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.project.simplyfly.dto.BookingDto;
 import com.project.simplyfly.dto.BookingPaymentDto;
 import com.project.simplyfly.enums.CouponType;
 import com.project.simplyfly.enums.PaymentType;
@@ -91,7 +92,7 @@ public class MakeBookingTest {
     @Test
     public void testMakeBooking() {
     	 BookingPaymentDto dto = new BookingPaymentDto();
-         dto.setPassengerId(List.of(101));	
+         dto.setPassengerIds(List.of(101));	
          dto.setCouponType(CouponType.DIWALI);
          dto.setPaymentType(PaymentType.UPI);
          //when mock principal is called return mockuser
@@ -105,9 +106,9 @@ public class MakeBookingTest {
          savedBooking.setId(1);
          when(bookingRepository.save(any(Booking.class))).thenReturn(savedBooking);
          when(paymentRepository.save(any(Payment.class))).thenReturn(new Payment());
-         List<Booking> result = bookingService.MakeBooking(dto, principal);
+         List<BookingDto> result = bookingService.makeBooking(dto, principal);
          assertEquals(1, result.size());
-         Booking resultBooking = result.get(0);
+         BookingDto resultBooking = result.get(0);
          assertEquals(customer, resultBooking.getCustomer());
          assertEquals(passenger, resultBooking.getPassenger());
          assertEquals(flight, resultBooking.getFlight());

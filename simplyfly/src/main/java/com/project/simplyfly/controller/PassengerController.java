@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.simplyfly.dto.PassengerDto;
@@ -24,7 +23,7 @@ public class PassengerController {
 	private PassengerService passengerService;
 	
 @PostMapping("/add")
-public Passenger AddPassenger(@RequestBody PassengerDto passengerdto,Principal principal) {
+public PassengerDto AddPassenger(@RequestBody PassengerDto passengerdto,Principal principal) {
 	
 	return passengerService.AddPassenger(passengerdto,principal);
 }

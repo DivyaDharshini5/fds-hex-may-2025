@@ -11,7 +11,7 @@ private CouponType couponType;
 public List<Integer> getPassengerIds() {
 	return passengerIds;
 }
-public void setPassengerId(List<Integer> passengerIds) {
+public void setPassengerIds(List<Integer> passengerIds) {
 	this.passengerIds = passengerIds;
 }
 public CouponType getCouponType() {

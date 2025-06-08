@@ -1,13 +1,14 @@
 package com.project.simplyfly.service;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
-
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.project.simplyfly.dto.PaymentDto;
 import com.project.simplyfly.enums.Status;
 import com.project.simplyfly.exception.ResourceNotFoundException;
 import com.project.simplyfly.exception.UserNotFoundException;
@@ -21,22 +22,21 @@ import com.project.simplyfly.repository.PaymentRepository;
 public class PaymentService {
 private PaymentRepository paymentRepository;
 private BookingRepository bookingRepository;
-
-
-
-private CustomerRepository customerRepository;
-
-public PaymentService(PaymentRepository paymentRepository, BookingRepository bookingRepository,CustomerRepository customerRepository) {
-	super();
+private BookingService bookingService;
+public PaymentService(PaymentRepository paymentRepository, BookingRepository bookingRepository,
+		BookingService bookingService, CustomerRepository customerRepository) {
 	this.paymentRepository = paymentRepository;
 	this.bookingRepository = bookingRepository;
-
+	this.bookingService = bookingService;
 	this.customerRepository = customerRepository;
 }
 
+private CustomerRepository customerRepository;
+
+
 //Process payment for all PROCESSING bookings of the logged-in customer
 @Transactional
-	public List<Payment> processPayment(Principal principal, boolean confirm) {
+	public List<PaymentDto> processPayment(Principal principal, boolean confirm) {
 	String username = principal.getName();
 	System.out.println(">>> Principal name: `" + username + "`");
 		 Customer customer = customerRepository.getCustomerByUsername(username);
@@ -60,17 +60,41 @@ public PaymentService(PaymentRepository paymentRepository, BookingRepository boo
 	            return payment;
 	        }).toList();
 	        bookingRepository.saveAll(toProcess);
-	        return paymentRepository.saveAll(setpayments);
+	        List<PaymentDto> paymentDtos = new ArrayList<>();
+	        paymentRepository.saveAll(setpayments).stream().forEach(p->paymentDtos.add(convertToPaymentDto(p)));
+	        return paymentDtos;      
 	}
 
-	public List<Payment> getPayments(Principal principal) {
+	public List<PaymentDto> getPayments(Principal principal) {
 		String username = principal.getName();
 		 Customer customer = customerRepository.getCustomerByUsername(username);
 	        if (customer == null) {
 	            throw new IllegalStateException("Customer not found");
 	        }
-	        return paymentRepository.findByCustomerId(customer.getId());
+	        List<Payment> payments = paymentRepository.findByCustomerId(customer.getId());
+	        List<PaymentDto> paymentDtos = new ArrayList<>();
+
+	        for (Payment payment : payments) {
+	            paymentDtos.add(convertToPaymentDto(payment));
+	        }
+
+	        return paymentDtos;
 	}
+	public PaymentDto convertToPaymentDto(Payment payment) {
+	    PaymentDto dto = new PaymentDto();
+	    dto.setId(payment.getId());
+	    dto.setPayment_date(payment.getPayment_date());
+	    dto.setAmount_paid(payment.getAmount_paid());
+	    dto.setTransaction_id(payment.getTransaction_id());
+	    dto.setStatus(payment.getStatus().toString());
+	    dto.setPaymentType(payment.getPaymentType());
+
+	    
+	    dto.setBooking(bookingService.convertToBookingDto(payment.getBooking()));
+
+	    return dto;
+	}
+
 @Transactional
 	public void cancelBooking(int bookingId, Principal principal) {
 	String username = principal.getName();
