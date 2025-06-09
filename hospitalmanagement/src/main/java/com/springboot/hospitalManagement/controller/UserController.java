@@ -46,7 +46,7 @@ public class UserController {
 	 * 
 	 * */
 	
-	@GetMapping("/get-token")
+	@GetMapping("/token")
 	public String getToken(Principal principal) {
 	    try {
 	        return jwtUtil.createToken(principal.getName()); // Use email/username directly

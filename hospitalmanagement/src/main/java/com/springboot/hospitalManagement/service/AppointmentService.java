@@ -33,21 +33,21 @@ public class AppointmentService {
 
 
 	public Appointment addAppointment(int patientId, int doctorId, Appointment appointment) {
-		// Fetch patient by ID
+		// get patient by id
 	    Patient patient = patientRepository.findById(patientId)
-	        .orElseThrow(() -> new PatientNotFoundException("Patient not found with ID: " + patientId));
+	        .orElseThrow(() -> new PatientNotFoundException("Patient ID invalid: " + patientId));
 
-	    // Fetch doctor by ID
+	    // get doctor by ID
 	    Doctor doctor = doctorRepository.findById(doctorId)
-	        .orElseThrow(() -> new DoctorNotFoundException("Doctor not found with ID: " + doctorId));
+	        .orElseThrow(() -> new DoctorNotFoundException("Doctor ID Invalid: " + doctorId));
 
-	    // Set patient and doctor to appointment
+	    //setting patient and doctor to make appointment
 	    appointment.setPatient(patient);
 	    appointment.setDoctor(doctor);
 
 	   
 
-	    // Save appointment in DB
+	    // Save  in DB
 	    return appointmentRepository.save(appointment);
 	}
 

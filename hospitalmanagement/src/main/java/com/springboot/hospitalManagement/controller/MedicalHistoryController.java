@@ -24,7 +24,7 @@ public class MedicalHistoryController {
     private MedicalHistoryService medicalHistoryService;
     
     /*
-     * Aim : To add the Medical History by the patient using batching
+     * Aim : To add the Medical History by the patient 
      * Path : api/medical-history/add/{patientId}
      * Method : POST
      * Response : List<MedicalHistory>
@@ -33,9 +33,9 @@ public class MedicalHistoryController {
      * */
 
     @PostMapping("/add/{patientId}")
-    public ResponseEntity<?> addBatchMedicalHistory(@PathVariable int patientId, @RequestBody List<MedicalHistory> historyList) {
-        medicalHistoryService.addBatchMedicalHistory(patientId, historyList);
-        return ResponseEntity.status(HttpStatus.OK).body("Medical History Added Successfully");
+    public ResponseEntity<?> addBatchMedicalHistory(@PathVariable int patientId, @RequestBody List<MedicalHistory> history) {
+        medicalHistoryService.addBatchMedicalHistory(patientId, history);
+        return ResponseEntity.status(HttpStatus.OK).body("Added Successfully");
     }
     
     /*

@@ -29,9 +29,9 @@ public class PatientService {
 
 
 
-	public Patient addPatientWithMedicalHistory(PatientMedicalHistory dto) {
+	public Patient addPatientMedicalHistory(PatientMedicalHistory dto) {
         Patient patient = dto.getPatient();
-        List<MedicalHistory> histories = dto.getMedicalHistories();
+        List<MedicalHistory> addhistory = dto.getMedicalHistories();
 
         
         User user = patient.getUser();
@@ -43,10 +43,10 @@ public class PatientService {
          Patient savedPatient =patientRepository.save(patient);
 
         
-        histories.forEach(history -> history.setPatient(savedPatient));
+         addhistory.forEach(h -> h.setPatient(savedPatient));
 
         //save in db
-        medicalHistoryRepository.saveAll(histories);
+        medicalHistoryRepository.saveAll(addhistory);
 
         return  patientRepository.save(patient);
     }

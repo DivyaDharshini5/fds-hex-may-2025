@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1;
+package com.springboot.hospitalManagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

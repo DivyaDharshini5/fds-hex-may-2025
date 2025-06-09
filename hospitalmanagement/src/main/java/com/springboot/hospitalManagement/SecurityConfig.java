@@ -22,8 +22,8 @@ public class SecurityConfig {
 	SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
 		http.csrf((csrf)->csrf.disable())
 		.authorizeHttpRequests(authorize -> authorize
-			.requestMatchers("api/user/signup").permitAll()
-			.requestMatchers("api/user/get-token").permitAll()
+			
+			.requestMatchers("api/user/token").permitAll()
 			.requestMatchers("api/doctor/add").permitAll()
 			.requestMatchers("api/patient/add").permitAll()
 			.requestMatchers("api/appointment/add").permitAll()

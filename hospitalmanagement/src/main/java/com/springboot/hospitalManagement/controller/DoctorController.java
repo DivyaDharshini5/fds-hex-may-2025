@@ -18,7 +18,7 @@ public class DoctorController {
     private DoctorService doctorService;
     
     /*
-     * Aim : To insert new Doctor
+     *add new Doctor
      * Path : api/doctor/add
      * Method : POST
      * Input : new Doctor
@@ -27,7 +27,7 @@ public class DoctorController {
 
     @PostMapping("/add")
     public ResponseEntity<Doctor> addDoctor(@RequestBody Doctor doctor) {
-        Doctor savedDoctor = doctorService.addDoctor(doctor);
-        return ResponseEntity.ok(savedDoctor);
+        Doctor newDoctor = doctorService.addDoctor(doctor);
+        return ResponseEntity.ok(newDoctor);
    }
 }

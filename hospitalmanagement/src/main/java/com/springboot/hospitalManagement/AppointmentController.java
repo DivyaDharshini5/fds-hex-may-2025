@@ -23,7 +23,7 @@ public class AppointmentController {
 	private AppointmentService appointmentService;
 	
 	/*
-	 * Aim : to make appointment by the patient and doctor
+	 * 
 	 * Path : api/appointment/add
 	 * Method :Post
 	 * Input : patient id , doctor id , Appointment
