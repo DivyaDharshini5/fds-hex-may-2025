@@ -29,26 +29,26 @@ public class PatientService {
 
 
 
-	public Patient addPatientWithMedicalHistory(PatientWithMedicalHistory dto) {
+	public Patient addPatientWithMedicalHistory(PatientMedicalHistory dto) {
         Patient patient = dto.getPatient();
         List<MedicalHistory> histories = dto.getMedicalHistories();
 
-        // Extract user and set role
+        
         User user = patient.getUser();
         user.setRole("PATIENT");
         user = userService.signUp(user); 
         patient.setUser(user);
 
-        // Save patient first to get ID
-        Patient savedPatient = patientRepository.save(patient);
+       
+         patientRepository.save(patient);
 
-        // Set patient reference in each MedicalHistory entry
+        
         histories.forEach(history -> history.setPatient(savedPatient));
 
-        // Save medical history list
+        //save in db
         medicalHistoryRepository.saveAll(histories);
 
-        return savedPatient;
+        return  patientRepository.save(patient);;
     }
 
 }
