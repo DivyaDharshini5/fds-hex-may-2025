@@ -8,8 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.springboot.hospitalManagement.exception.DoctorNotFoundException;
-import com.springboot.hospitalManagement.exception.PatientNotFoundException;
+import com.springboot.hospitalManagement.exception.DoctorIDNotFoundException;
+
+import com.springboot.hospitalManagement.exception.PatientIDNotFoundException;
+
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -32,8 +34,8 @@ public class GlobalExceptionHandler {
 	/*
 	 * Whenever the Patient is invalid then throws in Controller , the exception will call
 	 * */
-	@ExceptionHandler(exception = PatientNotFoundException.class)
-	public ResponseEntity<?> handlePatientInvalid(PatientNotFoundException e) {
+	@ExceptionHandler(exception = PatientIDNotFoundException.class)
+	public ResponseEntity<?> handlePatientInvalid(PatientIDNotFoundException e) {
 		
 		Map<String,String> map = new HashMap<>();
 		map.put("msg", e.getMessage());
@@ -46,8 +48,8 @@ public class GlobalExceptionHandler {
 	/*
 	 * Whenever the Doctor is invalid then throws in Controller , the exception will call
 	 * */
-	@ExceptionHandler(exception = DoctorNotFoundException.class)
-	public ResponseEntity<?> handlePatientInvalid(DoctorNotFoundException e) {
+	@ExceptionHandler(exception = DoctorIDNotFoundException.class)
+	public ResponseEntity<?> handlePatientInvalid(DoctorIDNotFoundException e) {
 		
 		Map<String,String> map = new HashMap<>();
 		map.put("msg", e.getMessage());

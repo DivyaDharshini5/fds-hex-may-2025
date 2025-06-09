@@ -1,12 +1,12 @@
 package com.springboot.hospitalManagement.exception;
 
-public class PatientNotFoundException extends RuntimeException{
+public class PatientIDNotFoundException extends RuntimeException{
 
 	
 	private static final long serialVersionUID = 1L;
 	
 	private String message;
-	public PatientNotFoundException(String message) {
+	public PatientIDNotFoundException(String message) {
 		this.message = message;
 	}
 	public String getMessage() {

@@ -6,7 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.springboot.hospitalManagement.dto.MedicalHistoryDto;
-import com.springboot.hospitalManagement.exception.PatientNotFoundException;
+import com.springboot.hospitalManagement.exception.PatientIDNotFoundException;
+
 import com.springboot.hospitalManagement.model.MedicalHistory;
 import com.springboot.hospitalManagement.model.Patient;
 import com.springboot.hospitalManagement.repository.MedicalHistoryRepository;
@@ -36,7 +37,7 @@ public class MedicalHistoryService {
 		
 		// fetch the patient by the patient id
         Patient patient = patientRepository.findById(patientId)
-                .orElseThrow(() -> new PatientNotFoundException("Patient Not Found"));
+                .orElseThrow(() -> new PatientIDNotFoundException("Patient Not Found"));
 
         // using batching to add the history in List of Medical History
         historyList.parallelStream().forEach(history -> history.setPatient(patient));
@@ -50,7 +51,7 @@ public class MedicalHistoryService {
 
 	public List<MedicalHistoryDto> getPatientWithHistory(int patientId) {
 		Patient patient = patientRepository.findById(patientId)
-		        .orElseThrow(() -> new PatientNotFoundException("Patient not found"));
+		        .orElseThrow(() -> new PatientIDNotFoundException("Patient not found"));
 		
 		List<MedicalHistory> medicalHistories = medicalHistoryRepository.findByPatientId(patientId);
 		

@@ -28,8 +28,8 @@ public class PatientController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addPatientMedicalHistory(@RequestBody PatientMedicalHistory dto) {
-        Patient savedPatient = patientService.addPatientMedicalHistory(dto);
-        return ResponseEntity.ok(savedPatient);
+        Patient newPatient = patientService.addPatientMedicalHistory(dto);
+        return ResponseEntity.ok(newPatient);
     }
     
     

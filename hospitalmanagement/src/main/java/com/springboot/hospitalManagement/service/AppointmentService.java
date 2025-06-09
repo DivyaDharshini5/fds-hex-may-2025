@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.springboot.hospitalManagement.exception.DoctorNotFoundException;
-import com.springboot.hospitalManagement.exception.PatientNotFoundException;
+import com.springboot.hospitalManagement.exception.DoctorIDNotFoundException;
+import com.springboot.hospitalManagement.exception.PatientIDNotFoundException;
 import com.springboot.hospitalManagement.model.Appointment;
 import com.springboot.hospitalManagement.model.Doctor;
 import com.springboot.hospitalManagement.model.Patient;
@@ -35,11 +35,11 @@ public class AppointmentService {
 	public Appointment addAppointment(int patientId, int doctorId, Appointment appointment) {
 		// get patient by id
 	    Patient patient = patientRepository.findById(patientId)
-	        .orElseThrow(() -> new PatientNotFoundException("Patient ID invalid: " + patientId));
+	        .orElseThrow(() -> new PatientIDNotFoundException("Patient ID invalid: " + patientId));
 
 	    // get doctor by ID
 	    Doctor doctor = doctorRepository.findById(doctorId)
-	        .orElseThrow(() -> new DoctorNotFoundException("Doctor ID Invalid: " + doctorId));
+	        .orElseThrow(() -> new DoctorIDNotFoundException("Doctor ID Invalid: " + doctorId));
 
 	    //setting patient and doctor to make appointment
 	    appointment.setPatient(patient);
@@ -54,11 +54,11 @@ public class AppointmentService {
 
 
 	public List<Patient> getPatientsByDoctor(String username) {
-		List<Patient> patients = appointmentRepository.getPatientsByDoctor(username);
-		if(patients == null) {
-			throw new PatientNotFoundException("Patient Not found");
+		List<Patient> patient = appointmentRepository.getPatientsByDoctor(username);
+		if(patient == null) {
+			throw new PatientIDNotFoundException("Patient Not found");
 		}
-		return patients;
+		return patient;
 	}
 
 }

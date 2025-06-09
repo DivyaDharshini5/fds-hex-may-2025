@@ -41,7 +41,7 @@ public class AppointmentController {
 	
 	/*
      * Aim : To get all patient by Doctor id
-     * Path : api/patient/doctor
+     * Path : api/patient/doctor by spirng principal
      * Method : Get
      * Response : List<Patient>
      * */
