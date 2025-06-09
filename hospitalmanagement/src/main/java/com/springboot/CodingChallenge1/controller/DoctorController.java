@@ -18,11 +18,10 @@ public class DoctorController {
     private DoctorService doctorService;
     
     /*
-     * Aim : To insert new Doctor
+     
      * Path : api/doctor/add
      * Method : POST
-     * Input : new Doctor
-     * Response : Doctor
+     to add doctor 
      * */
 
     @PostMapping("/add")
