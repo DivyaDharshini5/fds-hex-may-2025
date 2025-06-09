@@ -24,7 +24,7 @@ public class AppointmentController {
 	private AppointmentService appointmentService;
 	
 	/*
-	 * Aim : to make appointment by the patient and doctor
+	 
 	 * Path : api/appointment/add
 	 * Method :Post
 	 * Input : patient id , doctor id , Appointment
@@ -41,10 +41,10 @@ public class AppointmentController {
 	}
 	
 	/*
-     * Aim : To get all patient by Doctor id
+     * Aim : To get all patients by Doctor id
      * Path : api/patient/doctor
      * Method : Get
-     * Response : List<Patient>
+     
      * */
     
     @GetMapping("/doctor")
