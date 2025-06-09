@@ -27,16 +27,16 @@ public class DoctorService {
 
 
 	public Doctor addDoctor(Doctor doctor) {
-    	
+    	// Take user from the Learner Object
 		User user = doctor.getUser();
 		
-		
+		// Set Role as LEARNER in User
 		user.setRole("DOCTOR");
 		
-		
+		// save user in DB
 		user = userService.signUp(user);
 		
-		
+		// attach User in Learner
 		doctor.setUser(user);
     	
         return doctorRepository.save(doctor);

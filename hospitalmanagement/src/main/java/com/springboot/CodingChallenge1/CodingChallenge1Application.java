@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-public class hospitalApplication {
+public class CodingChallenge1Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CodingChallenge1Application.class, args);

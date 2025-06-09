@@ -5,7 +5,7 @@ import java.util.List;
 import com.springboot.CodingChallenge1.model.MedicalHistory;
 import com.springboot.CodingChallenge1.model.Patient;
 
-public class PatientMedicalHistory {
+public class PatientWithMedicalHistory {
 	
 	private Patient patient;
 	private List<MedicalHistory> medicalHistories;
