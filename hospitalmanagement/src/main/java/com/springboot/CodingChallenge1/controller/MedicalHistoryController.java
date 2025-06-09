@@ -24,9 +24,9 @@ public class MedicalHistoryController {
     @Autowired
     private MedicalHistoryService medicalHistoryService;
     
-    /*
-     * Aim : To add the Medical History by the patient using batching
-     * Path : api/medical-history/add/{patientId}
+    /
+     * Aim : Add medical history of patienrs
+
      * Method : POST
      * Response : List<MedicalHistory>
      * Input : patientId , List<MedicalHistory>
@@ -40,7 +40,7 @@ public class MedicalHistoryController {
     }
     
     /*
-     * Aim : To get medical records by patient id
+     * Aim : To get  records by patient id
      * Path : api/medical-history/get/{patientId}
      * Method : GET
      * Response : List<MedicalHistory>
