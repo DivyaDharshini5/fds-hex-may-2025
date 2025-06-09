@@ -29,7 +29,7 @@ public class PatientService {
 
 
 
-	public Patient addPatientWithMedicalHistory(PatientWithMedicalHistory dto) {
+	public Patient addPatientWithMedicalHistory(PatientMedicalHistory dto) {
         Patient patient = dto.getPatient();
         List<MedicalHistory> histories = dto.getMedicalHistories();
 
