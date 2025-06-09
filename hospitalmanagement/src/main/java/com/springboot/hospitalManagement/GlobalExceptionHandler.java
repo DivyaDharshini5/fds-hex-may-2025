@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1;
+package com.springboot.hospitalManagement;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.springboot.CodingChallenge1.exception.DoctorNotFoundException;
-import com.springboot.CodingChallenge1.exception.PatientNotFoundException;
+import com.springboot.hospitalManagement.exception.DoctorNotFoundException;
+import com.springboot.hospitalManagement.exception.PatientNotFoundException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {

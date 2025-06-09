@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.controller;
+package com.springboot.hospitalManagement.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.CodingChallenge1.model.Doctor;
-import com.springboot.CodingChallenge1.service.DoctorService;
+import com.springboot.hospitalManagement.model.Doctor;
+import com.springboot.hospitalManagement.service.DoctorService;
 
 @RestController
 @RequestMapping("api/doctor")

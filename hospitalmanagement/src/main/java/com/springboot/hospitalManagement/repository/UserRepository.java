@@ -1,9 +1,9 @@
-package com.springboot.CodingChallenge1.repository;
+package com.springboot.hospitalManagement.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.springboot.CodingChallenge1.model.User;
+import com.springboot.hospitalManagement.model.User;
 
 
 public interface UserRepository extends JpaRepository<User, Integer> {

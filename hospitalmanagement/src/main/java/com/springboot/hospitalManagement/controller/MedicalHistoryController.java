@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.controller;
+package com.springboot.hospitalManagement.controller;
 
 import java.util.List;
 
@@ -12,10 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.CodingChallenge1.dto.MedicalHistoryDto;
-import com.springboot.CodingChallenge1.dto.PatientWithMedicalHistory;
-import com.springboot.CodingChallenge1.model.MedicalHistory;
-import com.springboot.CodingChallenge1.service.MedicalHistoryService;
+import com.springboot.hospitalManagement.dto.MedicalHistoryDto;
+import com.springboot.hospitalManagement.model.MedicalHistory;
+import com.springboot.hospitalManagement.service.MedicalHistoryService;
 
 @RestController
 @RequestMapping("/api/medical-history")

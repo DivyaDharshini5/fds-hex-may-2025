@@ -1,12 +1,12 @@
-package com.springboot.CodingChallenge1.repository;
+package com.springboot.hospitalManagement.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.springboot.CodingChallenge1.model.Appointment;
-import com.springboot.CodingChallenge1.model.Patient;
+import com.springboot.hospitalManagement.model.Appointment;
+import com.springboot.hospitalManagement.model.Patient;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Integer>{
 

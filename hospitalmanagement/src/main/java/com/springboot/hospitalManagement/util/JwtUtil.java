@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.util;
+package com.springboot.hospitalManagement.util;
 
 import java.security.Key;
 import java.util.Date;

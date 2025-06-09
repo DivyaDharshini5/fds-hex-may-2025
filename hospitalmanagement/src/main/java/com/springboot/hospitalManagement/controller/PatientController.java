@@ -1,19 +1,15 @@
-package com.springboot.CodingChallenge1.controller;
-
-import java.security.Principal;
-import java.util.List;
+package com.springboot.hospitalManagement.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.CodingChallenge1.dto.PatientWithMedicalHistory;
-import com.springboot.CodingChallenge1.model.Patient;
-import com.springboot.CodingChallenge1.service.PatientService;
+import com.springboot.hospitalManagement.dto.PatientMedicalHistory;
+import com.springboot.hospitalManagement.model.Patient;
+import com.springboot.hospitalManagement.service.PatientService;
 
 @RestController
 @RequestMapping("api/patient")
@@ -31,7 +27,7 @@ public class PatientController {
      * */
 
     @PostMapping("/add")
-    public ResponseEntity<?> addPatientWithMedicalHistory(@RequestBody PatientWithMedicalHistory dto) {
+    public ResponseEntity<?> addPatientWithMedicalHistory(@RequestBody PatientMedicalHistory dto) {
         Patient savedPatient = patientService.addPatientWithMedicalHistory(dto);
         return ResponseEntity.ok(savedPatient);
     }

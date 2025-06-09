@@ -1,10 +1,10 @@
-package com.springboot.CodingChallenge1.repository;
+package com.springboot.hospitalManagement.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.springboot.CodingChallenge1.model.MedicalHistory;
+import com.springboot.hospitalManagement.model.MedicalHistory;
 
 public interface MedicalHistoryRepository extends JpaRepository<MedicalHistory, Integer> {
 

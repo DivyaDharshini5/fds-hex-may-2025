@@ -13,14 +13,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.springboot.CodingChallenge1.dto.MedicalHistoryDto;
-import com.springboot.CodingChallenge1.exception.PatientNotFoundException;
-import com.springboot.CodingChallenge1.model.MedicalHistory;
-import com.springboot.CodingChallenge1.model.Patient;
-import com.springboot.CodingChallenge1.repository.MedicalHistoryRepository;
-import com.springboot.CodingChallenge1.repository.PatientRepository;
-import com.springboot.CodingChallenge1.service.MedicalHistoryService;
-import com.springboot.CodingChallenge1.service.PatientService;
+import com.springboot.hospitalManagement.dto.MedicalHistoryDto;
+import com.springboot.hospitalManagement.model.MedicalHistory;
+import com.springboot.hospitalManagement.model.Patient;
+import com.springboot.hospitalManagement.repository.MedicalHistoryRepository;
+import com.springboot.hospitalManagement.repository.PatientRepository;
+import com.springboot.hospitalManagement.service.MedicalHistoryService;
+import com.springboot.hospitalManagement.service.PatientService;
 
 @SpringBootTest
 public class AppointmentServiceTest {

@@ -1,9 +1,9 @@
-package com.springboot.CodingChallenge1.dto;
+package com.springboot.hospitalManagement.dto;
 
 import java.util.List;
 
-import com.springboot.CodingChallenge1.model.MedicalHistory;
-import com.springboot.CodingChallenge1.model.Patient;
+import com.springboot.hospitalManagement.model.MedicalHistory;
+import com.springboot.hospitalManagement.model.Patient;
 
 public class PatientMedicalHistory {
 	

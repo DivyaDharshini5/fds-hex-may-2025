@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.exception;
+package com.springboot.hospitalManagement.exception;
 
 public class PatientNotFoundException extends RuntimeException{
 

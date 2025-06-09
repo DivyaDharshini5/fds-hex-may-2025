@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1;
+package com.springboot.hospitalManagement;
 
 import java.io.IOException;
 
@@ -10,8 +10,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.springboot.CodingChallenge1.service.CustomUserDetailsService;
-import com.springboot.CodingChallenge1.util.JwtUtil;
+import com.springboot.hospitalManagement.service.CustomUserDetailsService;
+import com.springboot.hospitalManagement.util.JwtUtil;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

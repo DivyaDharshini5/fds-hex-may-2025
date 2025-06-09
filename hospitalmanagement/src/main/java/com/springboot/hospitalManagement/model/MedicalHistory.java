@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.model;
+package com.springboot.hospitalManagement.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

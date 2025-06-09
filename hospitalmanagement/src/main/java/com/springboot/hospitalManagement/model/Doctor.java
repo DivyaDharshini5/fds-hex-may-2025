@@ -1,6 +1,6 @@
-package com.springboot.CodingChallenge1.model;
+package com.springboot.hospitalManagement.model;
 
-import com.springboot.CodingChallenge1.enums.Speciality;
+import com.springboot.hospitalManagement.enums.Speciality;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

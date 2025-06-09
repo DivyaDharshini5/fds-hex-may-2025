@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.dto;
+package com.springboot.hospitalManagement.dto;
 
 public class MedicalHistoryDto {
 	

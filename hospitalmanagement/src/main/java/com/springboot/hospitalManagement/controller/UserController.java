@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.controller;
+package com.springboot.hospitalManagement.controller;
 
 import java.security.Principal;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.CodingChallenge1.model.User;
-import com.springboot.CodingChallenge1.service.UserService;
-import com.springboot.CodingChallenge1.util.JwtUtil;
+import com.springboot.hospitalManagement.model.User;
+import com.springboot.hospitalManagement.service.UserService;
+import com.springboot.hospitalManagement.util.JwtUtil;
 
 
 

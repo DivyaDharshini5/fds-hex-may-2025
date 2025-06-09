@@ -1,12 +1,10 @@
-package com.springboot.CodingChallenge1.service;
+package com.springboot.hospitalManagement.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springboot.CodingChallenge1.enums.Speciality;
-import com.springboot.CodingChallenge1.model.Doctor;
-import com.springboot.CodingChallenge1.model.User;
-import com.springboot.CodingChallenge1.repository.DoctorRepository;
+import com.springboot.hospitalManagement.model.Doctor;
+import com.springboot.hospitalManagement.model.User;
+import com.springboot.hospitalManagement.repository.DoctorRepository;
 
 
 @Service

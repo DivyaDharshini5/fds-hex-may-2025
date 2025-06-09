@@ -1,17 +1,17 @@
-package com.springboot.CodingChallenge1.service;
+package com.springboot.hospitalManagement.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.springboot.CodingChallenge1.exception.DoctorNotFoundException;
-import com.springboot.CodingChallenge1.exception.PatientNotFoundException;
-import com.springboot.CodingChallenge1.model.Appointment;
-import com.springboot.CodingChallenge1.model.Doctor;
-import com.springboot.CodingChallenge1.model.Patient;
-import com.springboot.CodingChallenge1.repository.AppointmentRepository;
-import com.springboot.CodingChallenge1.repository.DoctorRepository;
-import com.springboot.CodingChallenge1.repository.PatientRepository;
+import com.springboot.hospitalManagement.exception.DoctorNotFoundException;
+import com.springboot.hospitalManagement.exception.PatientNotFoundException;
+import com.springboot.hospitalManagement.model.Appointment;
+import com.springboot.hospitalManagement.model.Doctor;
+import com.springboot.hospitalManagement.model.Patient;
+import com.springboot.hospitalManagement.repository.AppointmentRepository;
+import com.springboot.hospitalManagement.repository.DoctorRepository;
+import com.springboot.hospitalManagement.repository.PatientRepository;
 
 @Service
 public class AppointmentService {

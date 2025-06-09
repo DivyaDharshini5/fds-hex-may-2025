@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.model;
+package com.springboot.hospitalManagement.model;
 
 
 

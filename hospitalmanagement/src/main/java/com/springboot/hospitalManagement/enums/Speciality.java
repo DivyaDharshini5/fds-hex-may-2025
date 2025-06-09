@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1.enums;
+package com.springboot.hospitalManagement.enums;
 
 public enum Speciality {
 	PHYSICIAN,

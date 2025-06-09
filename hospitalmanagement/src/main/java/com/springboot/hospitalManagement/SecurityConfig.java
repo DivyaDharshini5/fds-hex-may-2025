@@ -1,4 +1,4 @@
-package com.springboot.CodingChallenge1;
+package com.springboot.hospitalManagement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

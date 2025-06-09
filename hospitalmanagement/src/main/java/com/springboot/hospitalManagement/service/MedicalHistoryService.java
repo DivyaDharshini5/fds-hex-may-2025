@@ -1,16 +1,16 @@
-package com.springboot.CodingChallenge1.service;
+package com.springboot.hospitalManagement.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.springboot.CodingChallenge1.dto.MedicalHistoryDto;
-import com.springboot.CodingChallenge1.exception.PatientNotFoundException;
-import com.springboot.CodingChallenge1.model.MedicalHistory;
-import com.springboot.CodingChallenge1.model.Patient;
-import com.springboot.CodingChallenge1.repository.MedicalHistoryRepository;
-import com.springboot.CodingChallenge1.repository.PatientRepository;
+import com.springboot.hospitalManagement.dto.MedicalHistoryDto;
+import com.springboot.hospitalManagement.exception.PatientNotFoundException;
+import com.springboot.hospitalManagement.model.MedicalHistory;
+import com.springboot.hospitalManagement.model.Patient;
+import com.springboot.hospitalManagement.repository.MedicalHistoryRepository;
+import com.springboot.hospitalManagement.repository.PatientRepository;
 
 import jakarta.transaction.Transactional;
 

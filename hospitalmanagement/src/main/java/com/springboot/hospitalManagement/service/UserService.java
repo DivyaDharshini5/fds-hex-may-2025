@@ -1,10 +1,10 @@
-package com.springboot.CodingChallenge1.service;
+package com.springboot.hospitalManagement.service;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.springboot.CodingChallenge1.model.User;
-import com.springboot.CodingChallenge1.repository.UserRepository;
+import com.springboot.hospitalManagement.model.User;
+import com.springboot.hospitalManagement.repository.UserRepository;
 
 
 
