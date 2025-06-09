@@ -48,14 +48,14 @@ public class AppointmentServiceTest {
         patient.setAge(25);
 
         history1 = new MedicalHistory();
-        history1.setIllness("Diabetes");
+        history1.setIllness("PCOS");
         history1.setNumOfYears(3);
         history1.setCurrentMedication("Metformin");
 
         history2 = new MedicalHistory();
-        history2.setIllness("Hypertension");
+        history2.setIllness("Pcos");
         history2.setNumOfYears(2);
-        history2.setCurrentMedication("Amlodipine");
+        history2.setCurrentMedication("Metaphormine");
     }
 
     @Test
@@ -67,7 +67,7 @@ public class AppointmentServiceTest {
 
         
         
-        Assertions.assertEquals("Diabetes", result.get(0).getIllness());
+        Assertions.assertEquals("PCOS", result.get(0).getIllness());
         Assertions.assertEquals(3, result.get(0).getNumberOfYears());
        
     }
